@@ -50,7 +50,7 @@ const initialTeams = [
 ];
 const teamLogos = {
   "Kansas City Chiefs": "Chiefs.png",
-  "Philadelphia Eagles": "Eagles.png",
+  "Philadelphia Eagles": "eagles.png",
   "Buffalo Bills": "Bills.png",
   "Baltimore Ravens": "Ravens.png",
   "Detroit Lions": "Lions.png",
@@ -105,7 +105,7 @@ function TeamCard({ team, index, teamLogos }) {
       className="team-card"
     >
       <h3>#{index + 1}</h3>
-   console.log(team, teamLogos[team]); 
+   
   <img
   src={`/logos/${teamLogos[team]}`}
   alt={team}
