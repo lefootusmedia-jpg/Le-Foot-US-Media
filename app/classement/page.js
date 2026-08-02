@@ -77,9 +77,6 @@ function TeamCard({ team, index }) {
   alt="Chiefs"
   className="team-logo"
 />
-  alt="Chiefs"
-  className="team-logo"
-/>
       <div>
   <p>{team}</p>
 </div>
