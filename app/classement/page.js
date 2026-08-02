@@ -160,7 +160,7 @@ export default function Classement() {
   index={index}
   teamLogos={teamLogos}
 />
-            />
+            
           ))}
         </SortableContext>
       </DndContext>
