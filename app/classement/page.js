@@ -111,7 +111,6 @@ function TeamCard({ team, index, teamLogos }) {
   alt={team}
   className="team-logo"
 />
-<p>{teamLogos[team]}</p>
       <div>
   <p>{team}</p>
 </div>
