@@ -9,10 +9,11 @@ export default function Home() {
         Classe les 32 équipes NFL de la meilleure à la moins bien classée
         pour notre classement de pré-saison.
       </p>
-
-      <button>
-        Commencer mon classement
-      </button>
+<a href="/classement">
+  <button>
+    Commencer mon classement
+  </button>
+</a>
     </main>
   );
 }
