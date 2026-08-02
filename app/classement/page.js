@@ -72,7 +72,11 @@ function TeamCard({ team, index }) {
     >
       <h3>#{index + 1}</h3>
       <img 
+  <img
   src="/logos/chiefs.png"
+  alt="Chiefs"
+  className="team-logo"
+/>
   alt="Chiefs"
   className="team-logo"
 />
