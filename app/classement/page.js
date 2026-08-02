@@ -1,3 +1,38 @@
+const teams = [
+  "Kansas City Chiefs",
+  "Philadelphia Eagles",
+  "Buffalo Bills",
+  "Baltimore Ravens",
+  "Detroit Lions",
+  "San Francisco 49ers",
+  "Cincinnati Bengals",
+  "Dallas Cowboys",
+  "Green Bay Packers",
+  "Houston Texans",
+  "Miami Dolphins",
+  "Los Angeles Chargers",
+  "Pittsburgh Steelers",
+  "Minnesota Vikings",
+  "Seattle Seahawks",
+  "Tampa Bay Buccaneers",
+  "Jacksonville Jaguars",
+  "Atlanta Falcons",
+  "Denver Broncos",
+  "New York Jets",
+  "Las Vegas Raiders",
+  "Cleveland Browns",
+  "New Orleans Saints",
+  "Indianapolis Colts",
+  "Los Angeles Rams",
+  "Arizona Cardinals",
+  "Carolina Panthers",
+  "Chicago Bears",
+  "New England Patriots",
+  "New York Giants",
+  "Tennessee Titans",
+  "Washington Commanders"
+];
+
 export default function Classement() {
   return (
     <main>
@@ -10,15 +45,11 @@ export default function Classement() {
       </p>
 
       <div>
-        Kansas City Chiefs
-      </div>
-
-      <div>
-        Philadelphia Eagles
-      </div>
-
-      <div>
-        Buffalo Bills
+        {teams.map((team, index) => (
+          <div key={team}>
+            {index + 1}. {team}
+          </div>
+        ))}
       </div>
     </main>
   );
