@@ -1,4 +1,19 @@
-const teams = [
+"use client";
+
+import { useState } from "react";
+import {
+  DndContext,
+  closestCenter,
+} from "@dnd-kit/core";
+import {
+  arrayMove,
+  SortableContext,
+  verticalListSortingStrategy,
+  useSortable,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
+
+const initialTeams = [
   "Kansas City Chiefs",
   "Philadelphia Eagles",
   "Buffalo Bills",
@@ -30,10 +45,51 @@ const teams = [
   "New England Patriots",
   "New York Giants",
   "Tennessee Titans",
-  "Washington Commanders"
+  "Washington Commanders",
 ];
+function TeamCard({ team, index }) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+  } = useSortable({ id: team });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
+
+  return (
+    <div
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
+    >
+      <h3>#{index + 1}</h3>
+      <p>{team}</p>
+    </div>
+  );
+}
 
 export default function Classement() {
+  const [teams, setTeams] = useState(initialTeams);
+
+  function handleDragEnd(event) {
+    const { active, over } = event;
+
+    if (!over || active.id === over.id) return;
+
+    setTeams((items) => {
+      const oldIndex = items.indexOf(active.id);
+      const newIndex = items.indexOf(over.id);
+
+      return arrayMove(items, oldIndex, newIndex);
+    });
+  }
+
   return (
     <main>
       <h1>🏈 Le Foot US Média</h1>
@@ -41,18 +97,26 @@ export default function Classement() {
       <h2>Power Ranking NFL</h2>
 
       <p>
-        Classe les 32 équipes NFL de la meilleure à la moins bien classée.
+        Fais glisser les équipes pour créer ton classement personnel.
       </p>
 
-      <div>
-        {teams.map((team, index) => (
-          <div key={team}>
-            <h3>#{index + 1}</h3>
-            <p>{team}</p>
-            <button>Déplacer</button>
-          </div>
-        ))}
-      </div>
+      <DndContext
+        collisionDetection={closestCenter}
+        onDragEnd={handleDragEnd}
+      >
+        <SortableContext
+          items={teams}
+          strategy={verticalListSortingStrategy}
+        >
+          {teams.map((team, index) => (
+            <TeamCard
+              key={team}
+              team={team}
+              index={index}
+            />
+          ))}
+        </SortableContext>
+      </DndContext>
     </main>
   );
 }
