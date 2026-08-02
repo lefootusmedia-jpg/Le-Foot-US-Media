@@ -74,6 +74,7 @@ function TeamCard({ team, index }) {
       <div>
   <p>{team}</p>
 </div>
+</div>
 );
 }
 
