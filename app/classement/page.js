@@ -121,6 +121,9 @@ export default function Classement() {
           ))}
         </SortableContext>
       </DndContext>
+          <button className="validate-button">
+  Valider mon Power Ranking
+</button>
     </main>
   );
 }
