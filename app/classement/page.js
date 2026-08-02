@@ -205,28 +205,38 @@ const [nfcTeams] = useState(NFCteams);
   Valider mon Power Ranking
 </button>
 <h2>Classement AFC</h2>
+<p>TEST AFC</p>
+<p>TEST AFC</p>
 
-{afcTeams.map((team) => (
+{afcTeams.map((team, index) => (
   <div key={team} className="team-card">
+    <span>{index + 1}</span>
+
     <img
       src={`/logos/${teamLogos[team]}`}
       alt={team}
       className="team-logo"
     />
+
     <p>{team}</p>
   </div>
 ))}
 
 <h2>Classement NFC</h2>
 
-{nfcTeams.map((team) => (
+{nfcTeams.map((team, index) => (
   <div key={team} className="team-card">
+
+  <span className="team-rank">{index + 1}</span> 
+
     <img
       src={`/logos/${teamLogos[team]}`}
       alt={team}
       className="team-logo"
     />
+
     <p>{team}</p>
+
   </div>
 ))}
     </main>
