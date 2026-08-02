@@ -36,18 +36,20 @@ const teams = [
 export default function Classement() {
   return (
     <main>
-      <h1>🏈 Power Ranking NFL</h1>
+      <h1>🏈 Le Foot US Média</h1>
 
-      <h2>Classe ton Top 32</h2>
+      <h2>Power Ranking NFL</h2>
 
       <p>
-        Déplace les équipes pour créer ton classement personnel.
+        Classe les 32 équipes NFL de la meilleure à la moins bien classée.
       </p>
 
       <div>
         {teams.map((team, index) => (
           <div key={team}>
-            {index + 1}. {team}
+            <h3>#{index + 1}</h3>
+            <p>{team}</p>
+            <button>Déplacer</button>
           </div>
         ))}
       </div>
