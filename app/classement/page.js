@@ -71,8 +71,9 @@ function TeamCard({ team, index }) {
       className="team-card"
     >
       <h3>#{index + 1}</h3>
-      <p>{team}</p>
-    </div>
+      <div>
+  <p>{team}</p>
+</div>
 );
 }
 
