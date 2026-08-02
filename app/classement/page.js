@@ -67,11 +67,12 @@ function TeamCard({ team, index }) {
       style={style}
       {...attributes}
       {...listeners}
+      className="team-card"
     >
       <h3>#{index + 1}</h3>
       <p>{team}</p>
     </div>
-  );
+);
 }
 
 export default function Classement() {
