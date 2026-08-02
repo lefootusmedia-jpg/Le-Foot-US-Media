@@ -48,6 +48,43 @@ const initialTeams = [
   "Tennessee Titans",
   "Washington Commanders",
 ];
+const AFCteams = [
+  "Kansas City Chiefs",
+  "Buffalo Bills",
+  "Baltimore Ravens",
+  "Cincinnati Bengals",
+  "Houston Texans",
+  "Indianapolis Colts",
+  "Jacksonville Jaguars",
+  "Miami Dolphins",
+  "New England Patriots",
+  "New York Jets",
+  "Pittsburgh Steelers",
+  "Cleveland Browns",
+  "Denver Broncos",
+  "Las Vegas Raiders",
+  "Los Angeles Chargers",
+  "Tennessee Titans",
+];
+
+const NFCteams = [
+  "Philadelphia Eagles",
+  "Detroit Lions",
+  "San Francisco 49ers",
+  "Dallas Cowboys",
+  "Green Bay Packers",
+  "Minnesota Vikings",
+  "Seattle Seahawks",
+  "Tampa Bay Buccaneers",
+  "Atlanta Falcons",
+  "Carolina Panthers",
+  "Chicago Bears",
+  "New Orleans Saints",
+  "Arizona Cardinals",
+  "Los Angeles Rams",
+  "New York Giants",
+  "Washington Commanders",
+];
 const teamLogos = {
   "Kansas City Chiefs": "Chiefs.png",
   "Philadelphia Eagles": "eagles.png",
@@ -120,7 +157,8 @@ function TeamCard({ team, index, teamLogos }) {
 
 export default function Classement() {
   const [teams, setTeams] = useState(initialTeams);
-
+const [afcTeams] = useState(AFCteams);
+const [nfcTeams] = useState(NFCteams);
   function handleDragEnd(event) {
     const { active, over } = event;
 
@@ -166,6 +204,31 @@ export default function Classement() {
           <button className="validate-button">
   Valider mon Power Ranking
 </button>
+<h2>Classement AFC</h2>
+
+{afcTeams.map((team) => (
+  <div key={team} className="team-card">
+    <img
+      src={`/logos/${teamLogos[team]}`}
+      alt={team}
+      className="team-logo"
+    />
+    <p>{team}</p>
+  </div>
+))}
+
+<h2>Classement NFC</h2>
+
+{nfcTeams.map((team) => (
+  <div key={team} className="team-card">
+    <img
+      src={`/logos/${teamLogos[team]}`}
+      alt={team}
+      className="team-logo"
+    />
+    <p>{team}</p>
+  </div>
+))}
     </main>
   );
 }
