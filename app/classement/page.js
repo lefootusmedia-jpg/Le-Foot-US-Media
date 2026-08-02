@@ -48,7 +48,41 @@ const initialTeams = [
   "Tennessee Titans",
   "Washington Commanders",
 ];
-function TeamCard({ team, index }) {
+const teamLogos = {
+  "Kansas City Chiefs": "Chiefs.png",
+  "Philadelphia Eagles": "Eagles.png",
+  "Buffalo Bills": "Bills.png",
+  "Baltimore Ravens": "Ravens.png",
+  "Detroit Lions": "Lions.png",
+  "San Francisco 49ers": "49ers.png",
+  "Cincinnati Bengals": "Bengals.png",
+  "Dallas Cowboys": "Cowboys.png",
+  "Green Bay Packers": "Packers.png",
+  "Houston Texans": "Texans.png",
+  "Miami Dolphins": "Dolphins.png",
+  "Los Angeles Chargers": "Chargers.png",
+  "Pittsburgh Steelers": "Steelers.png",
+  "Minnesota Vikings": "Vikings.png",
+  "Seattle Seahawks": "Seahawks.png",
+  "Tampa Bay Buccaneers": "Buccaneers.png",
+  "Jacksonville Jaguars": "Jaguars.png",
+  "Atlanta Falcons": "Falcons.png",
+  "Denver Broncos": "Broncos.png",
+  "New York Jets": "Jets.png",
+  "Las Vegas Raiders": "Raiders.png",
+  "Cleveland Browns": "Browns.png",
+  "New Orleans Saints": "Saints.png",
+  "Indianapolis Colts": "Colts.png",
+  "Los Angeles Rams": "Rams.png",
+  "Arizona Cardinals": "Cardinals.png",
+  "Carolina Panthers": "Panthers.png",
+  "Chicago Bears": "Bears.png",
+  "New England Patriots": "Patriots.png",
+  "New York Giants": "Giants.png",
+  "Tennessee Titans": "Titans.png",
+  "Washington Commanders": "Commanders.png",
+};
+function TeamCard({ team, index, teamLogos }) {
   const {
     attributes,
     listeners,
@@ -71,12 +105,13 @@ function TeamCard({ team, index }) {
       className="team-card"
     >
       <h3>#{index + 1}</h3>
-    
+   console.log(team, teamLogos[team]); 
   <img
-  src="/logos/Chiefs.png"
-  alt="Chiefs"
+  src={`/logos/${teamLogos[team]}`}
+  alt={team}
   className="team-logo"
 />
+<p>{teamLogos[team]}</p>
       <div>
   <p>{team}</p>
 </div>
@@ -120,9 +155,11 @@ export default function Classement() {
         >
           {teams.map((team, index) => (
             <TeamCard
-              key={team}
-              team={team}
-              index={index}
+  key={team}
+  team={team}
+  index={index}
+  teamLogos={teamLogos}
+/>
             />
           ))}
         </SortableContext>
