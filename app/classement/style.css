@@ -53,7 +53,12 @@ p {
   font-weight: bold;
   margin: 0;
 }
-
+.team-card span {
+  font-size: 24px;
+  font-weight: bold;
+  width: 35px;
+  text-align: center;
+}
 .validate-button {
   width: 100%;
   margin-top: 30px;
@@ -71,4 +76,17 @@ p {
 .validate-button:hover {
   background: #15803d;
   transform: scale(1.02);
+}
+.conference-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.conference-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
