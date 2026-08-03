@@ -204,25 +204,38 @@ const [nfcTeams] = useState(NFCteams);
           <button className="validate-button">
   Valider mon Power Ranking
 </button>
-<h2>Classement AFC</h2>
-
 {afcTeams.map((team, index) => (
-  <TeamCard
-    key={team}
-    team={team}
-    index={index}
-    teamLogos={teamLogos}
-  />
+  <div key={team} className="team-card">
+    <span className="rank-number">{index + 1}</span>
+
+    <img
+      src={`/logos/${teamLogos[team]}`}
+      alt={team}
+      className="team-logo"
+    />
+
+    <p>{team}</p>
+  </div>
 ))}
 
-<h2>Classement NFC</h2>
+<h2 className="conference-title">
+  <img src="/logos/NFC.png" alt="NFC" className="conference-logo" />
+  Classement NFC
+</h2>
 
 {nfcTeams.map((team, index) => (
-  <TeamCard
-    key={team}
-    team={team}
-    index={index}
-    teamLogos={teamLogos}
+  <div key={team} className="team-card">
+    <span className="rank-number">{index + 1}</span>
+
+    <img
+      src={`/logos/${teamLogos[team]}`}
+      alt={team}
+      className="team-logo"
+    />
+
+    <p>{team}</p>
+  </div>
+))}
   />
 ))}
     </main>
