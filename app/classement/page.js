@@ -3,8 +3,6 @@ import "./style.css";
 
 import { useState, useEffect } from "react";
 
-  localStorage.setItem("powerRanking", JSON.stringify(teams));
-}, [teams]);
 import {
   DndContext,
   closestCenter,
