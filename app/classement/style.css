@@ -119,3 +119,25 @@ p {
   font-size: 22px;
   font-weight: bold;
 }
+.team-card.gold {
+  background: linear-gradient(90deg, #ffd700, #fff7cc);
+}
+
+.team-card.silver {
+  background: linear-gradient(90deg, #d9d9d9, #ffffff);
+}
+
+.team-card.bronze {
+  background: linear-gradient(90deg, #cd7f32, #ffe6c7);
+}
+.gold {
+  background: linear-gradient(90deg, #FFD700, #FFF4B2);
+}
+
+.silver {
+  background: linear-gradient(90deg, #C0C0C0, #F5F5F5);
+}
+
+.bronze {
+  background: linear-gradient(90deg, #CD7F32, #F3C48A);
+}

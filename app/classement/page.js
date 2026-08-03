@@ -140,9 +140,17 @@ return (
     style={style}
     {...attributes}
     {...listeners}
-    className="team-card"
+    className={`team-card ${
   >
-    <span className="rank-number">{index + 1}</span>
+   <span className="rank-number">
+  {index === 0
+    ? "🥇"
+    : index === 1
+    ? "🥈"
+    : index === 2
+    ? "🥉"
+    : `#${index + 1}`}
+</span>
 
     <img
       src={`/logos/${teamLogos[team]}`}
@@ -150,7 +158,7 @@ return (
       className="team-logo"
     />
 
-    <p>{team}</p>
+    <p className="team-name">{team}</p>
   </div>
 );
 }
@@ -194,12 +202,35 @@ useEffect(() => {
       </p>
 <h2>🔥 Top 5 actuel</h2>
 {teams.slice(0, 5).map((team, index) => (
-  <TeamCard
-    key={team}
-    team={team}
-    index={index}
-    teamLogos={teamLogos}
+  <div
+  className={`team-card ${
+    index === 0
+      ? "gold"
+      : index === 1
+      ? "silver"
+      : index === 2
+      ? "bronze"
+      : ""
+  }`}
+>
+  <span className="rank-number">
+    {index === 0
+      ? "🥇"
+      : index === 1
+      ? "🥈"
+      : index === 2
+      ? "🥉"
+      : `#${index + 1}`}
+  </span>
+
+  <img
+    src={`/logos/${teamLogos[team]}`}
+    alt={team}
+    className="team-logo"
   />
+
+  <p>{team}</p>
+</div>
 ))}
       <DndContext
         collisionDetection={closestCenter}
