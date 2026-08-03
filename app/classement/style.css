@@ -77,16 +77,40 @@ p {
   background: #15803d;
   transform: scale(1.02);
 }
-.conference-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 40px;
+.rank-number {
+  width: 35px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
 }
 
-.conference-logo {
-  width: 40px;
-  height: 40px;
+.team-logo {
+  width: 42px;
+  height: 42px;
   object-fit: contain;
+  margin: 0 15px;
+}
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.share-button {
+  width: 100%;
+  padding: 18px;
+  background: #2563eb;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.share-button:hover {
+  background: #1d4ed8;
+  transform: scale(1.02);
 }

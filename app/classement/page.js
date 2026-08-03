@@ -226,9 +226,29 @@ useEffect(() => {
           ))}
         </SortableContext>
       </DndContext>
-          <button className="validate-button">
-  Valider mon Power Ranking
-</button>
+          <div className="button-group">
+  <button className="validate-button">
+    Valider mon Power Ranking
+  </button>
+
+  <button
+    className="share-button"
+    onClick={() => {
+      if (navigator.share) {
+        navigator.share({
+          title: "Mon Power Ranking NFL",
+          text: "Voici mon Power Ranking NFL ! 🏈",
+          url: window.location.href,
+        });
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert("Lien copié !");
+      }
+    }}
+  >
+    📤 Partager mon Power Ranking
+  </button>
+</div>
 <h2 className="conference-title">
   <img
     src="/logos/AFC.png"
