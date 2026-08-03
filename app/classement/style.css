@@ -1,13 +1,14 @@
 body {
-  background: #111827;
+  background: linear-gradient(180deg, #0b1f3a 0%, #111827 100%);
   color: white;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
 }
 
 main {
-  max-width: 700px;
+  max-width: 760px;
   margin: auto;
-  padding: 30px;
+  padding: 40px 20px 60px;
 }
 
 h1 {
@@ -27,21 +28,30 @@ p {
 
 /* Cartes équipes */
 .team-card {
-  background: white;
-  color: #111827;
-  border-radius: 18px;
-  padding: 18px 22px;
-  margin: 14px 0;
-  box-shadow: 0 8px 20px rgba(0,0,0,.25);
-
   display: flex;
   align-items: center;
-  justify-content: flex-start;
 
-  gap: 20px;
+  background: #ffffff;
+  color: #111827;
+
+  border-radius: 16px;
+
+  padding: 18px 22px;
+
+  margin: 12px 0;
+
+  border-left: 6px solid #013369;
+
+  box-shadow: 0 12px 30px rgba(0,0,0,.18);
+
+  transition: all .25s ease;
 
   cursor: grab;
-  transition: transform .2s ease;
+}
+
+.team-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.28);
 }
 
 .team-card:active {
@@ -49,19 +59,19 @@ p {
   transform: scale(1.02);
 }
 
-.rank-number {
-  width: 55px;
-  font-size: 28px;
-  font-weight: bold;
-  text-align: center;
-  flex-shrink: 0;
+.rank-number{
+  width:55px;
+  text-align:center;
+  font-size:26px;
+  font-weight:900;
+  color:#013369;
 }
 
-.team-logo {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  flex-shrink: 0;
+.team-logo{
+  width:64px;
+  height:64px;
+  object-fit:contain;
+  margin:0 20px;
 }
 
 .team-card p {
@@ -140,4 +150,26 @@ p {
 
 .bronze {
   background: linear-gradient(90deg, #CD7F32, #F3C48A);
+}
+.team-name{
+  font-size:22px;
+  font-weight:700;
+  margin:0;
+}
+.gold{
+    background: linear-gradient(90deg,#FFD700,#FFF4B2);
+}
+
+.silver{
+    background: linear-gradient(90deg,#C0C0C0,#F7F7F7);
+}
+
+.bronze{
+    background: linear-gradient(90deg,#CD7F32,#FFD7B5);
+}
+.gold,
+.silver,
+.bronze{
+    border:3px solid rgba(255,255,255,.45);
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
 }
