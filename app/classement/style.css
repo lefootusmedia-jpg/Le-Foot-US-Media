@@ -18,99 +18,104 @@ h1 {
 h2 {
   text-align: center;
   font-size: 28px;
+  margin: 30px 0 20px;
 }
 
 p {
   text-align: center;
 }
 
+/* Cartes équipes */
 .team-card {
   background: white;
   color: #111827;
   border-radius: 18px;
-  padding: 20px;
+  padding: 18px 22px;
   margin: 14px 0;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-  cursor: grab;
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  transition: transform 0.2s;
+  justify-content: flex-start;
+
+  gap: 20px;
+
+  cursor: grab;
+  transition: transform .2s ease;
 }
 
 .team-card:active {
   cursor: grabbing;
-  transform: scale(1.03);
-}
-
-.team-card h3 {
-  font-size: 28px;
-  margin: 0;
-}
-
-.team-card p {
-  font-size: 21px;
-  font-weight: bold;
-  margin: 0;
-}
-.team-card span {
-  font-size: 24px;
-  font-weight: bold;
-  width: 35px;
-  text-align: center;
-}
-.validate-button {
-  width: 100%;
-  margin-top: 30px;
-  padding: 18px;
-  background: #16a34a;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.validate-button:hover {
-  background: #15803d;
   transform: scale(1.02);
 }
+
 .rank-number {
-  width: 35px;
-  font-size: 24px;
+  width: 55px;
+  font-size: 28px;
   font-weight: bold;
   text-align: center;
+  flex-shrink: 0;
 }
 
 .team-logo {
-  width: 42px;
-  height: 42px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
-  margin: 0 15px;
+  flex-shrink: 0;
 }
+
+.team-card p {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Boutons */
 .button-group {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-top: 30px;
+  margin: 35px 0;
 }
 
+.validate-button,
 .share-button {
   width: 100%;
   padding: 18px;
-  background: #2563eb;
+  border: none;
+  border-radius: 14px;
   color: white;
   font-size: 20px;
   font-weight: bold;
-  border: none;
-  border-radius: 14px;
   cursor: pointer;
-  transition: all 0.2s ease;
 }
 
-.share-button:hover {
-  background: #1d4ed8;
-  transform: scale(1.02);
+.validate-button {
+  background: #16a34a;
+}
+
+.share-button {
+  background: #2563eb;
+}
+
+/* Titres AFC / NFC */
+.conference-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: 50px;
+}
+
+.conference-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+.team-name {
+  margin: 0;
+  margin-left: 20px;
+  font-size: 22px;
+  font-weight: bold;
 }

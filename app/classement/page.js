@@ -134,25 +134,24 @@ function TeamCard({ team, index, teamLogos }) {
     transition,
   };
 
-  return (
-    <div
-      ref={setNodeRef}
-      style={style}
-      {...attributes}
-      {...listeners}
-      className="team-card"
-    >
-      <h3>#{index + 1}</h3>
-   
-  <img
-  src={`/logos/${teamLogos[team]}`}
-  alt={team}
-  className="team-logo"
-/>
-      <div>
-  <p>{team}</p>
-</div>
-</div>
+return (
+  <div
+    ref={setNodeRef}
+    style={style}
+    {...attributes}
+    {...listeners}
+    className="team-card"
+  >
+    <span className="rank-number">{index + 1}</span>
+
+    <img
+      src={`/logos/${teamLogos[team]}`}
+      alt={team}
+      className="team-logo"
+    />
+
+    <p>{team}</p>
+  </div>
 );
 }
 
@@ -195,17 +194,12 @@ useEffect(() => {
       </p>
 <h2>🔥 Top 5 actuel</h2>
 {teams.slice(0, 5).map((team, index) => (
-  <div key={team} className="team-card">
-    <span className="rank-number">{index + 1}</span>
-
-    <img
-      src={`/logos/${teamLogos[team]}`}
-      alt={team}
-      className="team-logo"
-    />
-
-    <p>{team}</p>
-  </div>
+  <TeamCard
+    key={team}
+    team={team}
+    index={index}
+    teamLogos={teamLogos}
+  />
 ))}
       <DndContext
         collisionDetection={closestCenter}
@@ -259,17 +253,12 @@ useEffect(() => {
 </h2>
 
 {afcTeams.map((team, index) => (
-  <div key={team} className="team-card">
-    <span className="rank-number">{index + 1}</span>
-
-    <img
-      src={`/logos/${teamLogos[team]}`}
-      alt={team}
-      className="team-logo"
-    />
-
-    <p>{team}</p>
-  </div>
+  <TeamCard
+    key={team}
+    team={team}
+    index={index}
+    teamLogos={teamLogos}
+  />
 ))}
 
 <h2 className="conference-title">
@@ -278,17 +267,12 @@ useEffect(() => {
 </h2>
 
 {nfcTeams.map((team, index) => (
-  <div key={team} className="team-card">
-    <span className="rank-number">{index + 1}</span>
-
-    <img
-      src={`/logos/${teamLogos[team]}`}
-      alt={team}
-      className="team-logo"
-    />
-
-    <p>{team}</p>
-  </div>
+  <TeamCard
+    key={team}
+    team={team}
+    index={index}
+    teamLogos={teamLogos}
+  />
 ))}
     </main>
   );
