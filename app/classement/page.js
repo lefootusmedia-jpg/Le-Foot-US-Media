@@ -204,6 +204,15 @@ const [nfcTeams] = useState(NFCteams);
           <button className="validate-button">
   Valider mon Power Ranking
 </button>
+<h2 className="conference-title">
+  <img
+    src="/logos/AFC.png"
+    alt="AFC"
+    className="conference-logo"
+  />
+  Classement AFC
+</h2>
+
 {afcTeams.map((team, index) => (
   <div key={team} className="team-card">
     <span className="rank-number">{index + 1}</span>
@@ -235,8 +244,6 @@ const [nfcTeams] = useState(NFCteams);
 
     <p>{team}</p>
   </div>
-))}
-  />
 ))}
     </main>
   );
