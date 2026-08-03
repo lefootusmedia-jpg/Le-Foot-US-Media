@@ -181,7 +181,20 @@ const [nfcTeams] = useState(NFCteams);
       <p>
         Fais glisser les équipes pour créer ton classement personnel.
       </p>
+<h2>🔥 Top 5 actuel</h2>
+{teams.slice(0, 5).map((team, index) => (
+  <div key={team} className="team-card">
+    <span className="rank-number">{index + 1}</span>
 
+    <img
+      src={`/logos/${teamLogos[team]}`}
+      alt={team}
+      className="team-logo"
+    />
+
+    <p>{team}</p>
+  </div>
+))}
       <DndContext
         collisionDetection={closestCenter}
         onDragEnd={handleDragEnd}
