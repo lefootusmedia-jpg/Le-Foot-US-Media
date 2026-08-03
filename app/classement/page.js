@@ -1,7 +1,10 @@
 "use client";
 import "./style.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+  localStorage.setItem("powerRanking", JSON.stringify(teams));
+}, [teams]);
 import {
   DndContext,
   closestCenter,
@@ -159,6 +162,17 @@ export default function Classement() {
   const [teams, setTeams] = useState(initialTeams);
 const [afcTeams] = useState(AFCteams);
 const [nfcTeams] = useState(NFCteams);
+useEffect(() => {
+  const savedRanking = localStorage.getItem("powerRanking");
+
+  if (savedRanking) {
+    setTeams(JSON.parse(savedRanking));
+  }
+}, []);
+
+useEffect(() => {
+  localStorage.setItem("powerRanking", JSON.stringify(teams));
+}, [teams]);
   function handleDragEnd(event) {
     const { active, over } = event;
 
