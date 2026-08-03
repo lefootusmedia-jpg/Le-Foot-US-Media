@@ -135,21 +135,21 @@ function TeamCard({ team, index, teamLogos }) {
   };
 
 return (
-  <div
-    ref={setNodeRef}
-    style={style}
-    {...attributes}
-    {...listeners}
-    className={`team-card ${
-  >
-   <span className="rank-number">
-  {index === 0
-    ? "🥇"
-    : index === 1
-    ? "🥈"
-    : index === 2
-    ? "🥉"
-    : `#${index + 1}`}
+ <div
+  ref={setNodeRef}
+  style={style}
+  {...attributes}
+  {...listeners}
+  className={`team-card ${
+    index === 0
+      ? "gold"
+      : index === 1
+      ? "silver"
+      : index === 2
+      ? "bronze"
+      : ""
+  }`}
+></div>
 </span>
 
     <img
