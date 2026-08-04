@@ -141,4 +141,35 @@ p {
   background: linear-gradient(90deg, #cd7f32, #ffe6c7);
 }
 .gold {
-  background: linear-gradient(90deg, #FFD70
+  background: linear-gradient(90deg, #FFD700, #FFF4B2);
+}
+
+.silver {
+  background: linear-gradient(90deg, #C0C0C0, #F5F5F5);
+}
+
+.bronze {
+  background: linear-gradient(90deg, #CD7F32, #F3C48A);
+}
+.team-name{
+  font-size:22px;
+  font-weight:700;
+  margin:0;
+}
+.gold{
+    background: linear-gradient(90deg,#FFD700,#FFF4B2);
+}
+
+.silver{
+    background: linear-gradient(90deg,#C0C0C0,#F7F7F7);
+}
+
+.bronze{
+    background: linear-gradient(90deg,#CD7F32,#FFD7B5);
+}
+.gold,
+.silver,
+.bronze{
+    border:3px solid rgba(255,255,255,.45);
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
