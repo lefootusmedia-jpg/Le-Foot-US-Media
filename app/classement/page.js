@@ -2,7 +2,7 @@
 import "./style.css";
 
 import { useState, useEffect } from "react";
-
+import html2canvas from "html2canvas";
 import {
   DndContext,
   closestCenter,
@@ -179,6 +179,18 @@ useEffect(() => {
   localStorage.setItem("powerRanking", JSON.stringify(teams));
 }, [teams]);
   function handleDragEnd(event) {
+    const downloadRanking = async () => {
+  const ranking = document.getElementById("ranking");
+
+  const canvas = await html2canvas(ranking);
+
+  const link = document.createElement("a");
+
+  link.download = "Mon-Power-Ranking-NFL.png";
+  link.href = canvas.toDataURL();
+
+  link.click();
+};
     const { active, over } = event;
 
     if (!over || active.id === over.id) return;
@@ -192,7 +204,7 @@ useEffect(() => {
   }
 
   return (
-    <main>
+  <main id="ranking">
       <h1>🏈 Le Foot US Média</h1>
 
       <h2>Power Ranking NFL</h2>
@@ -273,6 +285,12 @@ useEffect(() => {
   >
     📤 Partager mon Power Ranking
   </button>
+  <button
+  className="share-button"
+  onClick={downloadRanking}
+>
+  📸 Télécharger mon Power Ranking
+</button>
 </div>
 <h2 className="conference-title">
   <img
