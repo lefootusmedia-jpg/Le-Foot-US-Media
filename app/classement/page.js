@@ -272,9 +272,25 @@ useEffect(() => {
         </SortableContext>
       </DndContext>
           <div className="button-group">
-  <button className="validate-button">
-    Valider mon Power Ranking
-  </button>
+ <button
+  className="validate-button"
+  onClick={async () => {
+    const response = await fetch("/api/submit-ranking", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ranking: teams,
+      }),
+    });
+
+    const data = await response.json();
+    alert(data.message);
+  }}
+>
+  ✅ Valider mon Power Ranking
+</button>
 
   <button
     className="share-button"
