@@ -168,13 +168,17 @@ export default function Classement() {
   const [afcTeams] = useState(AFCteams);
   const [nfcTeams] = useState(NFCteams);
 
-  useEffect(() => {
-    ...
-  }, []);
+useEffect(() => {
+  const savedRanking = localStorage.getItem("powerRanking");
 
-  useEffect(() => {
-    ...
-  }, [teams]);
+  if (savedRanking) {
+    setTeams(JSON.parse(savedRanking));
+  }
+}, []);
+
+useEffect(() => {
+  localStorage.setItem("powerRanking", JSON.stringify(teams));
+}, [teams]);
 
   // 👇 ICI
   const downloadRanking = async () => {
