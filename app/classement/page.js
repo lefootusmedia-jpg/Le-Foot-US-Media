@@ -165,32 +165,37 @@ return (
 
 export default function Classement() {
   const [teams, setTeams] = useState(initialTeams);
-const [afcTeams] = useState(AFCteams);
-const [nfcTeams] = useState(NFCteams);
-useEffect(() => {
-  const savedRanking = localStorage.getItem("powerRanking");
+  const [afcTeams] = useState(AFCteams);
+  const [nfcTeams] = useState(NFCteams);
 
-  if (savedRanking) {
-    setTeams(JSON.parse(savedRanking));
-  }
-}, []);
+  useEffect(() => {
+    ...
+  }, []);
 
-useEffect(() => {
-  localStorage.setItem("powerRanking", JSON.stringify(teams));
-}, [teams]);
+  useEffect(() => {
+    ...
+  }, [teams]);
+
+  // 👇 ICI
+  const downloadRanking = async () => {
+    const html2canvas = (await import("html2canvas")).default;
+
+    const element = document.querySelector(".ranking-container");
+    if (!element) return;
+
+    const canvas = await html2canvas(element, {
+      backgroundColor: "#0b1220",
+      scale: 2,
+    });
+
+    const link = document.createElement("a");
+    link.download = "power-ranking.png";
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  };
+
+  // 👇 PUIS ENSUITE
   function handleDragEnd(event) {
-    const downloadRanking = async () => {
-  const ranking = document.getElementById("ranking");
-
-  const canvas = await html2canvas(ranking);
-
-  const link = document.createElement("a");
-
-  link.download = "Mon-Power-Ranking-NFL.png";
-  link.href = canvas.toDataURL();
-
-  link.click();
-};
     const { active, over } = event;
 
     if (!over || active.id === over.id) return;
@@ -202,7 +207,6 @@ useEffect(() => {
       return arrayMove(items, oldIndex, newIndex);
     });
   }
-
   return (
   <main id="ranking">
       <h1>🏈 Le Foot US Média</h1>
